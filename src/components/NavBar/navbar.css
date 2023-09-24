@@ -10,11 +10,19 @@
 }
 
 .navbar_item {
-    padding: 4px;
+    padding: 10px 0px;
 }
 
 .navbar_item_link {
     text-decoration: none;
-    color: #f3eeee;
-    font-size: 17px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.navbar_item_link:hover {
+    color: #01769b;
+}
+
+.active_link {
+    color: #01769b;
 }
