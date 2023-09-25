@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+import {NavLink} from "react-router-dom";
 
 import './navbar.css'
 
+
 export const NavBar = () => {
-    const [activeLink, setActiveLink] = useState(false)
 
     const navBarItems = [
         {
@@ -36,13 +37,12 @@ export const NavBar = () => {
     const elements = navBarItems.map(item => {
         return (
             <div key={item.id} className='navbar_item'>
-                <a
-                    href={item.link}
+                <NavLink
+                    to={item.link}
                     className='navbar_item_link'
-                    // className={`${activeLink ? 'active_link' : 'navbar_item_link'}`}
                 >
                     {item.title}
-                </a>
+                </NavLink>
             </div>
         )
     })
