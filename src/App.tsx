@@ -5,12 +5,16 @@ import {Header} from "./components/Header/Header";
 import {NavBar} from "./components/NavBar/NavBar";
 import {Content} from "./components/Content/Content";
 import {Dialogs} from "./components/Dialogs/Dialogs";
+import {RootStateType} from "./redux/state";
 
 import './App.css';
 
+type AppPropsType = {
+    state: RootStateType
+}
 
+function App({state}: AppPropsType) {
 
-function App() {
     return (
             <div className="App">
                 <Header />
@@ -21,8 +25,8 @@ function App() {
                     </div>
 
                     <div className='content_block'>
-                        <Route path='/profile' component={Content} />
-                        <Route path='/messages' component={Dialogs} />
+                        <Route path='/profile' render={() => <Content postsData={state.profilePage.postsData} />} />
+                        <Route path='/messages' render={() => <Dialogs />} />
                     </div>
 
                 </div>

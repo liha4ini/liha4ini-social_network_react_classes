@@ -1,13 +1,11 @@
 import React from 'react';
 
 import s from './postItem.module.css';
+import {PostsDataType} from "../../redux/state";
 
-type PostItemPropsType = {
-    message: string
-    likesCount: number
-}
 
-export const PostItem = ({likesCount, message}: PostItemPropsType) => {
+export const PostItem = ({message, id, likesCount}: PostsDataType) => {
+
     return (
         <div className={s.wrapper}>
             <div className={s.textBlock}>

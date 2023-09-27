@@ -7,17 +7,38 @@ import s from './Dialogs.module.css'
 
 
 export const Dialogs = () => {
+
+    const dialogsData = [
+        {id: 1, name: 'Kate'},
+        {id: 2, name: 'John'},
+        {id: 3, name: 'Eric'},
+    ]
+
+    const messagesData = [
+        {id: 1, message: 'Yo'},
+        {id: 2, message: 'What are ypu doing?'},
+        {id: 3, message: 'I am here'},
+    ]
+
     return (
         <div className={s.dialogsWrapper}>
             <div className={s.usersWrapper}>
-                <DialogItem name='Kate' id={1} />
-                <DialogItem name='John' id={2} />
-                <DialogItem name='Eric' id={3} />
+                {
+                    dialogsData.map(el => {
+                        return (
+                            <DialogItem name={el.name} id={el.id} key={el.id} />
+                        )
+                    })
+                }
             </div>
             <div className={s.messagesWrapper}>
-                <MessageItem message={'Yo'} />
-                <MessageItem message={"Hi"} />
-                <MessageItem message={'Bye'} />
+                {
+                    messagesData.map(el => {
+                        return (
+                            <MessageItem message={el.message} id={el.id} key={el.id} />
+                        )
+                    })
+                }
             </div>
         </div>
     );

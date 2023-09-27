@@ -2,12 +2,14 @@ import React from 'react';
 import {Posts} from "../Posts/Posts";
 
 import './content.css'
+import {ProfilePageType} from "../../redux/state";
 
 
-export const Content = () => {
+export const Content = ({postsData}: ProfilePageType) => {
+
     return (
         <div className='content'>
-            <Posts />
+            <Posts postsData={postsData} />
         </div>
     );
 };
