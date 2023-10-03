@@ -1,10 +1,10 @@
-type MessagesDataType = {
+export type MessagesDataType = {
     id: number
     message: string
     // addPostCallback: (postText: string) => void
 }
 
-type DialogsDataType = {
+export type DialogsDataType = {
     id: number
     name: string
 }
@@ -19,12 +19,20 @@ export type ProfilePageType = {
     postsData: PostsDataType[]
 }
 
-type DialogsPageType = {
+export type DialogsPageType = {
     dialogsData: DialogsDataType[]
     messagesData: MessagesDataType[]
 }
 
-type SidebarType = {}
+export type SidebarItemsType = {
+    id: number
+    title: string
+    link: string
+}
+
+export type SidebarType = {
+    sidebarItems: SidebarItemsType[]
+}
 
 export type RootStateType = {
     profilePage: ProfilePageType
@@ -55,7 +63,35 @@ const state: RootStateType = {
             {id: 4, name: 'Nika'},
         ],
     },
-    sidebar: {}
+    sidebar: {
+        sidebarItems: [
+            {
+                id: 1,
+                title: 'Profile',
+                link: '/profile'
+            },
+            {
+                id: 2,
+                title: 'Messages',
+                link: '/messages'
+            },
+            {
+                id: 3,
+                title: 'News',
+                link: '/news'
+            },
+            {
+                id: 4,
+                title: 'Music',
+                link: '/music'
+            },
+            {
+                id: 5,
+                title: 'Settings',
+                link: '/settings'
+            },
+        ]
+    }
 }
 
 // export const addPost = (postText: string) => {

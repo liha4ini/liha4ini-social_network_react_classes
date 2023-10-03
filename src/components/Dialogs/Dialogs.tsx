@@ -4,21 +4,10 @@ import {DialogItem} from "../DialogItem/DialogItem";
 import {MessageItem} from "../MessageItem/MessageItem";
 
 import s from './Dialogs.module.css'
+import {DialogsPageType} from "../../redux/state";
 
 
-export const Dialogs = () => {
-
-    const dialogsData = [
-        {id: 1, name: 'Kate'},
-        {id: 2, name: 'John'},
-        {id: 3, name: 'Eric'},
-    ]
-
-    const messagesData = [
-        {id: 1, message: 'Yo'},
-        {id: 2, message: 'What are ypu doing?'},
-        {id: 3, message: 'I am here'},
-    ]
+export const Dialogs = ({dialogsData, messagesData}: DialogsPageType) => {
 
     return (
         <div className={s.dialogsWrapper}>

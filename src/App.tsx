@@ -21,12 +21,12 @@ function App({state}: AppPropsType) {
                 <div className='main_block'>
 
                     <div className='nav_block'>
-                        <NavBar />
+                        <NavBar sidebarItems={state.sidebar.sidebarItems} />
                     </div>
 
                     <div className='content_block'>
                         <Route path='/profile' render={() => <Content postsData={state.profilePage.postsData} />} />
-                        <Route path='/messages' render={() => <Dialogs />} />
+                        <Route path='/messages' render={() => <Dialogs messagesData={state.dialogsPage.messagesData} dialogsData={state.dialogsPage.dialogsData} />} />
                     </div>
 
                 </div>
