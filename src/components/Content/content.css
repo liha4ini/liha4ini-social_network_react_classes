@@ -4,4 +4,36 @@
     border-radius: 10px;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     padding: 20px;
+    margin-top: 30px;
 }
+
+h1 {
+    color: #405d90;
+    font-weight: bold;
+}
+
+.addPost_block {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addPost_block textarea {
+    width: 70%;
+    height: 300px;
+    border: 1px solid #c2cec2;
+    border-radius: 15px;
+    background: #e0e9ef;
+}
+
+.addPost_block button {
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #c2cec2;
+    background-color: #79bdf4;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 5px;
+}
+
