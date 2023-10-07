@@ -5,15 +5,16 @@ import {Header} from "./components/Header/Header";
 import {NavBar} from "./components/NavBar/NavBar";
 import {Content} from "./components/Content/Content";
 import {Dialogs} from "./components/Dialogs/Dialogs";
-import {RootStateType} from "./redux/state";
+import {alertFoo, RootStateType} from "./redux/state";
 
 import './App.css';
 
 type AppPropsType = {
     state: RootStateType
+    alertFoo: (text: string) => void
 }
 
-function App({state}: AppPropsType) {
+function App({state, alertFoo}: AppPropsType) {
 
     return (
             <div className="App">
@@ -25,7 +26,7 @@ function App({state}: AppPropsType) {
                     </div>
 
                     <div className='content_block'>
-                        <Route path='/profile' render={() => <Content postsData={state.profilePage.postsData} />} />
+                        <Route path='/profile' render={() => <Content postsData={state.profilePage.postsData} alertFoo={alertFoo} />} />
                         <Route path='/messages' render={() => <Dialogs messagesData={state.dialogsPage.messagesData} dialogsData={state.dialogsPage.dialogsData} />} />
                     </div>
 

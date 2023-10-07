@@ -1,3 +1,5 @@
+import {rerenderMyApp} from "../render";
+
 export type MessagesDataType = {
     id: number
     message: string
@@ -11,7 +13,7 @@ export type DialogsDataType = {
 
 export type PostsDataType = {
     id: number
-    message: string
+    message: string | undefined
     likesCount: number
 }
 
@@ -93,7 +95,7 @@ const state: RootStateType = {
         ]
     }
 }
-
+console.log(state.profilePage.postsData)
 // export const addPost = (postText: string) => {
 //     const newPost: PostsDataType = {
 //         id: new Date().getTime(),
@@ -101,5 +103,15 @@ const state: RootStateType = {
 //         likesCount: 0
 //     }
 // }
+
+export const alertFoo = (text: string) => {
+    const newPost: PostsDataType = {
+        id: state.profilePage.postsData.length + 1,
+        message: text,
+        likesCount: 0
+    }
+    state.profilePage.postsData.push(newPost)
+    rerenderMyApp(state)
+}
 
 export default state

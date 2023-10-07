@@ -24,7 +24,10 @@ h1 {
     height: 300px;
     border: 1px solid #c2cec2;
     border-radius: 15px;
-    background: #e0e9ef;
+    background: #f6f8f8;
+    padding: 10px 15px;
+    font-size: 18px;
+    color: #625c5c;
 }
 
 .addPost_block button {
@@ -35,5 +38,10 @@ h1 {
     color: #ffffff;
     font-size: 17px;
     padding: 5px;
+    cursor: pointer;
+}
+
+.addPost_block button:hover {
+    background-color: #45a2f3;
 }
 
