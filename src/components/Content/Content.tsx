@@ -8,9 +8,11 @@ import './content.css'
 type ContentPropsType = {
     postsData: PostsDataType[]
     alertFoo: (text: string) => void
+    newTextMessage: string
+    changeTextPost: (text: string) => void
 }
 
-export const Content = ({postsData, alertFoo}: ContentPropsType) => {
+export const Content = ({postsData, alertFoo, newTextMessage, changeTextPost}: ContentPropsType) => {
     let textareaValue = React.createRef<HTMLTextAreaElement>();
 
     const addPost = () => {
@@ -20,15 +22,21 @@ export const Content = ({postsData, alertFoo}: ContentPropsType) => {
         }
     }
 
+    const onTextChange = () => {
+        if (textareaValue.current) {
+            changeTextPost(textareaValue.current.value)
+        }
+    }
+
     return (
         <>
             <h1>My Posts</h1>
             <div className='addPost_block'>
-                <textarea ref={textareaValue}></textarea>
+                <textarea ref={textareaValue} value={newTextMessage} onChange={onTextChange}></textarea>
                 <button onClick={addPost}>Add Post</button>
             </div>
             <div className='content'>
-                <Posts postsData={postsData}/>
+                <Posts postsData={postsData} newTextMessage={newTextMessage}/>
             </div>
         </>
     );

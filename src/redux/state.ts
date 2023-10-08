@@ -3,7 +3,6 @@ import {rerenderMyApp} from "../render";
 export type MessagesDataType = {
     id: number
     message: string
-    // addPostCallback: (postText: string) => void
 }
 
 export type DialogsDataType = {
@@ -19,6 +18,7 @@ export type PostsDataType = {
 
 export type ProfilePageType = {
     postsData: PostsDataType[]
+    newTextMessage: string
 }
 
 export type DialogsPageType = {
@@ -50,6 +50,7 @@ const state: RootStateType = {
             {id: 3, message: 'Are you work today?', likesCount: 5},
             {id: 4, message: 'Are you work today?', likesCount: 5},
         ],
+        newTextMessage: ''
     },
     dialogsPage: {
         messagesData: [
@@ -95,14 +96,7 @@ const state: RootStateType = {
         ]
     }
 }
-console.log(state.profilePage.postsData)
-// export const addPost = (postText: string) => {
-//     const newPost: PostsDataType = {
-//         id: new Date().getTime(),
-//         message: postText,
-//         likesCount: 0
-//     }
-// }
+
 
 export const alertFoo = (text: string) => {
     const newPost: PostsDataType = {
@@ -111,6 +105,12 @@ export const alertFoo = (text: string) => {
         likesCount: 0
     }
     state.profilePage.postsData.push(newPost)
+    rerenderMyApp(state)
+    state.profilePage.newTextMessage = ''
+}
+
+export const changeTextPost = (text: string) => {
+    state.profilePage.newTextMessage = text
     rerenderMyApp(state)
 }
 
