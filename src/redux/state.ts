@@ -98,10 +98,10 @@ const state: RootStateType = {
 }
 
 
-export const alertFoo = (text: string) => {
+export const alertFoo = () => {
     const newPost: PostsDataType = {
         id: state.profilePage.postsData.length + 1,
-        message: text,
+        message: state.profilePage.newTextMessage,
         likesCount: 0
     }
     state.profilePage.postsData.push(newPost)

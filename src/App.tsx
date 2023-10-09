@@ -11,7 +11,7 @@ import './App.css';
 
 type AppPropsType = {
     state: RootStateType
-    alertFoo: (text: string) => void
+    alertFoo: () => void
     changeTextPost: (text: string) => void
 }
 

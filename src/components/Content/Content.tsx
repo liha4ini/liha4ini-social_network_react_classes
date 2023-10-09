@@ -7,7 +7,7 @@ import './content.css'
 
 type ContentPropsType = {
     postsData: PostsDataType[]
-    alertFoo: (text: string) => void
+    alertFoo: () => void
     newTextMessage: string
     changeTextPost: (text: string) => void
 }
@@ -16,10 +16,8 @@ export const Content = ({postsData, alertFoo, newTextMessage, changeTextPost}: C
     let textareaValue = React.createRef<HTMLTextAreaElement>();
 
     const addPost = () => {
-        if (textareaValue.current) {
-            alertFoo(textareaValue.current.value)
-            textareaValue.current.value = ''
-        }
+            alertFoo()
+            changeTextPost('')
     }
 
     const onTextChange = () => {
